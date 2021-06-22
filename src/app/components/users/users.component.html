@@ -1,1 +1,23 @@
-<h2>Users Component loaded successfully....</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="card my-card-style">
+        <img [src]="user.avatar"
+          class="card-img-top rounded-circle img-responsive">
+        <div class="card-body text-center">
+          <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+          <p>Email : <span [innerHTML]="user.email"></span></p>
+          <p>Total Votes : {{ user.votes }}
+            <input type="number" [(ngModel)] = "user.votes">
+
+            <!-- <input type="number"
+              [value]="user.votes"
+              (change) = "onVoteChange($event.target.value)"> -->
+              <!-- (change) = "user.votes = $event.target.value"> -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
