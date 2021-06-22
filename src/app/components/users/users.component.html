@@ -10,6 +10,11 @@
           <p>Total Votes : {{ user.votes }}
             <input type="number" [(ngModel)] = "user.votes">
 
+
+            <!-- <input type="number"
+              [ngModel] = "user.votes"
+              (ngModelChange)="user.votes = $event.target.value"> -->
+
             <!-- <input type="number"
               [value]="user.votes"
               (change) = "onVoteChange($event.target.value)"> -->
@@ -21,3 +26,10 @@
   </div>
 
 </div>
+
+
+<!-- Sugar Syntax -->
+<!--  *ngFor =""  -->
+
+<!-- Desugar Syntax -->
+<!-- ngForOf -->
