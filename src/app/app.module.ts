@@ -2,15 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [     // Components, Directives, Pipes
+    AppComponent,
+    UsersComponent
   ],
-  imports: [
+  imports: [          // Module - Builtin / Custom
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [],      // Service
+  bootstrap: [AppComponent]     // loads the Root Component
 })
 export class AppModule { }
