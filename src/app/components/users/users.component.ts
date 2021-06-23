@@ -19,6 +19,10 @@ export class UsersComponent{
   onVoteChange(value : number){
     this.user.votes = value;
   }
+
+  theParentFunc(value : string){
+    alert(`Child Event value : ${value}`);
+  }
 }
 
 

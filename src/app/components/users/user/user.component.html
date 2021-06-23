@@ -1,0 +1,26 @@
+<div class="card my-card-style">
+  <img [src]="user.avatar"
+    class="card-img-top rounded-circle img-responsive">
+  <div class="card-body text-center">
+    <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+    <p>Email : <span [innerHTML]="user.email"></span></p>
+    <p>Total Votes : {{ user.votes }}
+      <input type="number" [(ngModel)] = "user.votes">
+
+
+      <!-- <input type="number"
+        [ngModel] = "user.votes"
+        (ngModelChange)="user.votes = $event.target.value"> -->
+
+      <!-- <input type="number"
+        [value]="user.votes"
+        (change) = "onVoteChange($event.target.value)"> -->
+        <!-- (change) = "user.votes = $event.target.value"> -->
+    </p>
+
+    <button class="btn btn-block btn-primary" (click)="onClick()">
+      Call Parent
+    </button>
+
+  </div>
+</div>
