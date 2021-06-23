@@ -8,7 +8,7 @@
 
       <!-- <ng-content></ng-content> -->
 
-    <h3 [ngClass] = "dynamicClass">{{ user.first_name }} {{ user.last_name }}</h3>
+    <h3 appHighlight [appHighlightfavColor]="'yellow'" [ngClass] = "dynamicClass">{{ user.first_name | uppercase }} {{ user.last_name }}</h3>
 
     <p [ngStyle]= "dynamicStyle" >Email : <span [innerHTML]="user.email"></span></p>
     <p>Total Votes : {{ user.votes }}

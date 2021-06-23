@@ -1,0 +1,13 @@
+<div class="container">
+
+<h3>{{ user.firstName | uppercase }} {{ user.lastName | lowercase}}</h3>
+
+<p>Income : {{ user.income | currency : 'INR'}}</p>
+
+<p>Date of Birth : {{ user.dob | date : 'short' }} </p>
+
+<p>{{ user | json }}</p>
+
+<h3>Promise Data : {{ promise | async }} </h3>
+
+</div>

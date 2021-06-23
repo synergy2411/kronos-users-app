@@ -25,20 +25,20 @@
   </ng-template>
 
   <!-- Sugar Syntax -->
-  <p *ngIf="toggleUser">Displaying Users - Sugar</p>
+  <!-- <p *ngIf="toggleUser">Displaying Users - Sugar</p> -->
 
   <!-- Desugar -->
-
+<!--
   <ng-template [ngIf] ="!toggleUser">
     <p>Displaying Users- Desugar</p>
-  </ng-template>
+  </ng-template> -->
 
-  <p *appUnless="toggleUser">
+  <!-- <p *appUnless="toggleUser">
     App Unless Works!
   </p>
 
-  <ng-template [appUnless] = "toggleUser">
+  <ng-template [appUnless] = "toggleUser" []="">
     <p>App Unless Works!</p>
-  </ng-template>
+  </ng-template> -->
 
 </div>
