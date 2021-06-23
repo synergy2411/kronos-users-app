@@ -1,7 +1,13 @@
 <div class="card my-card-style">
+  <!-- <ng-content select ="header"></ng-content> -->
+
   <img [src]="user.avatar"
     class="card-img-top rounded-circle img-responsive">
-  <div class="card-body text-center">
+
+    <div class="card-body text-center">
+
+      <!-- <ng-content></ng-content> -->
+
     <h3>{{ user.first_name }} {{ user.last_name }}</h3>
     <p>Email : <span [innerHTML]="user.email"></span></p>
     <p>Total Votes : {{ user.votes }}
@@ -18,9 +24,12 @@
         <!-- (change) = "user.votes = $event.target.value"> -->
     </p>
 
-    <button class="btn btn-block btn-primary" (click)="onClick()">
+    <button class="btn btn-block btn-primary"
+      (click)="onClick()">
       Call Parent
     </button>
+
+    <!-- <ng-content select="footer"></ng-content> -->
 
   </div>
 </div>

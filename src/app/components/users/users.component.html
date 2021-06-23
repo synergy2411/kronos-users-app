@@ -2,18 +2,18 @@
 
 
 
-  <div class="row">
+  <button class="btn btn-warning"
+    (click)="onToggleUser()">Toggle User</button>
+
+  <div class="row" *ngIf="toggleUser">
     <div class="col-sm-6 col-md-4">
       <app-user [user]="user"
-        (childEvent) ="theParentFunc($event)" ></app-user>
+        (childEvent) ="theParentFunc($event)" >
+
+      </app-user>
+
     </div>
   </div>
 
 </div>
 
-
-<!-- Sugar Syntax -->
-<!--  *ngFor =""  -->
-
-<!-- Desugar Syntax -->
-<!-- ngForOf -->
