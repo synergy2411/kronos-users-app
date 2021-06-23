@@ -11,6 +11,25 @@ export class UserComponent
 implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked,
 AfterViewInit, AfterViewChecked, OnDestroy {
 
+  @Input() user : User;
+
+  @Output() childEvent = new EventEmitter<string>()
+
+  dynamicStyle = {
+    'border' : '2px green solid',
+    'font-size' : '1.2em'
+  }
+
+  dynamicClass = {'my-border' : true, 'my-size' : false}
+
+  onClick(){
+    this.childEvent.emit("Event Data");
+    this.dynamicStyle['font-size'] = '1em';
+    this.dynamicClass['my-border'] = !this.dynamicClass['my-border']
+    this.dynamicClass['my-size'] = !this.dynamicClass['my-size']
+  }
+
+
   ngOnChanges(changes: SimpleChanges): void {
     console.log("ngOnChanges", changes);
   }
@@ -38,13 +57,7 @@ AfterViewInit, AfterViewChecked, OnDestroy {
 
 
 
-  @Input() user : User;
 
-  @Output() childEvent = new EventEmitter<string>()
-
-  onClick(){
-    this.childEvent.emit("Event Data");
-  }
 
 }
 

@@ -8,8 +8,9 @@
 
       <!-- <ng-content></ng-content> -->
 
-    <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-    <p>Email : <span [innerHTML]="user.email"></span></p>
+    <h3 [ngClass] = "dynamicClass">{{ user.first_name }} {{ user.last_name }}</h3>
+
+    <p [ngStyle]= "dynamicStyle" >Email : <span [innerHTML]="user.email"></span></p>
     <p>Total Votes : {{ user.votes }}
       <input type="number" [(ngModel)] = "user.votes">
 

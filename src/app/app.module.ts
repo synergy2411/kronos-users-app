@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/users/user/user.component';
+import { UnlessDirective } from './directives/unless.directive';
 
 @NgModule({
   declarations: [     // Components, Directives, Pipes
     AppComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    UnlessDirective
   ],
   imports: [          // Module - Builtin / Custom
     BrowserModule,

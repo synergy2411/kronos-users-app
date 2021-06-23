@@ -3,3 +3,12 @@
   box-shadow: 3px 3px darkgrey;
   cursor: pointer;
 }
+
+.my-border{
+  border-bottom: 2px coral solid;
+}
+
+.my-size{
+  font-size: 1.2em;
+  font-weight: bold;
+}

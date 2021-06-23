@@ -1,19 +1,44 @@
 <div class="container">
+  <button class="btn btn-warning" (click)="onToggleUser()">Toggle User</button>
 
-
-
-  <button class="btn btn-warning"
-    (click)="onToggleUser()">Toggle User</button>
-
-  <div class="row" *ngIf="toggleUser">
-    <div class="col-sm-6 col-md-4">
-      <app-user [user]="user"
-        (childEvent) ="theParentFunc($event)" >
-
-      </app-user>
-
+  <div class="row" *ngIf="toggleUser; else NotFoundTemplate">
+    <div
+      class="col-sm-6 col-md-4"
+      *ngFor="
+        let user of users;
+        index as idx;
+        first as isFirst;
+        last as isLast;
+        even as isEven;
+        odd as isOdd
+      "
+    >
+      index : {{ idx }} || Is this First? : {{ isFirst }}
+      <br />
+      Is this Even ? {{ isEven }} || Is this Odd? {{ isOdd }}
+      <app-user [user]="user" (childEvent)="theParentFunc($event)"> </app-user>
     </div>
   </div>
 
-</div>
+  <ng-template #NotFoundTemplate>
+    <p>Users not loaded...</p>
+  </ng-template>
 
+  <!-- Sugar Syntax -->
+  <p *ngIf="toggleUser">Displaying Users - Sugar</p>
+
+  <!-- Desugar -->
+
+  <ng-template [ngIf] ="!toggleUser">
+    <p>Displaying Users- Desugar</p>
+  </ng-template>
+
+  <p *appUnless="toggleUser">
+    App Unless Works!
+  </p>
+
+  <ng-template [appUnless] = "toggleUser">
+    <p>App Unless Works!</p>
+  </ng-template>
+
+</div>
