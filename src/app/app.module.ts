@@ -10,6 +10,7 @@ import { HighlightDirective } from './Directives/highlight.directive';
 import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
 import { CountryCodePipe } from './pipes/country-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LoginComponent } from './components/auth/login/login.component';
 
 @NgModule({
   declarations: [     // Components, Directives, Pipes
@@ -20,7 +21,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     HighlightDirective,
     PipeDemoComponent,
     CountryCodePipe,
-    FilterPipe
+    FilterPipe,
+    LoginComponent
   ],
   imports: [          // Module - Builtin / Custom
     BrowserModule,
