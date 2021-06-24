@@ -8,6 +8,8 @@ import { UserComponent } from './components/users/user/user.component';
 import { UnlessDirective } from './directives/unless.directive';
 import { HighlightDirective } from './Directives/highlight.directive';
 import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
+import { CountryCodePipe } from './pipes/country-code.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [     // Components, Directives, Pipes
@@ -16,7 +18,9 @@ import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
     UserComponent,
     UnlessDirective,
     HighlightDirective,
-    PipeDemoComponent
+    PipeDemoComponent,
+    CountryCodePipe,
+    FilterPipe
   ],
   imports: [          // Module - Builtin / Custom
     BrowserModule,

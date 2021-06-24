@@ -8,6 +8,44 @@
 
 <p>{{ user | json }}</p>
 
+<p>Contact Number : {{ user.contact_number | countryCode}} </p>
+
 <h3>Promise Data : {{ promise | async }} </h3>
 
+<hr>
+
+<div class="row">
+  <div class="col-sm-6 col-md-6">
+    <select name="status" [(ngModel)] = "filteredStatus" class="form-control" >
+      <option value="pending">Pending</option>
+      <option value="done">Done</option>
+    </select>
+  </div>
+
+  <div class="col-sm-6 col-md-6">
+    <button class="btn btn-primary btn-block" (click) = "onAddNewItem()">
+      Add New Item
+    </button>
+  </div>
+
 </div>
+
+<ul class="list-group">
+  <li *ngFor="let todo of todoCollection | filter : filteredStatus" class="list-group-item">
+      {{ todo.label }}
+      <span class="badge badge-primary" class="fluid-right">
+        {{ todo.status }}
+      </span>
+  </li>
+</ul>
+
+
+</div>
+
+
+
+<!-- Pure Function : no side effects;
+    add(num1, num2) {return num1 + num2}
+    coll.push(newItem);         // impure change
+    coll = []       // Pure Change
+-->
