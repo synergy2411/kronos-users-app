@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-sm-8 col-md-6 offset-sm-2 offset-md-3">
+
+    <div class="card">
+      <div class="card-header">
+        <h3 class="text-center">Register Form</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="registerForm">
+          <!-- Username -->
+          <div class="form-group">
+            <label for="username">Username :</label>
+            <input type="text"
+              name="username"
+              class="form-control"
+              [formControl] = "username">
+              <div class="alert alert-danger"
+                *ngIf="!username.valid && username.touched">
+                - Something wrong with Username field.
+                <div *ngIf="username.hasError('required')">
+                  *Username field is mandatory.</div>
+                <div *ngIf="username.hasError('email')">
+                  *Username field requires email format.</div>
+              </div>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="password">Password :</label>
+            <input type="password"
+              name="password"
+              class="form-control"
+              [formControl] = "password">
+              <div class="alert alert-danger" *ngIf ="!password.valid && password.touched">
+                <!-- - Something wrong with Password field. -->
+                <div *ngIf="password.hasError('required')">
+                  *Password is mandaotry field.
+                </div>
+                <div *ngIf="password.hasError('minlength')">
+                  *Password must contain 6 characters.
+                </div>
+                <div *ngIf="password.hasError('needExclamation')">
+                  *Password must contains exclamation mark.
+                </div>
+              </div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="form-group">
+            <label for="cnfPassword">Confirm Password : </label>
+            <input type="password" name="cnfPassword" class="form-control">
+          </div>
+
+          <!-- Buttons -->
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-6 col-md-6">
+                <button class="btn btn-success btn-block"
+                  (click)="onRegister()"
+                  [disabled] = "!registerForm.valid" >Register</button>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <button class="btn btn-warning btn-block"
+                  (click) = "onReset()">Reset</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
