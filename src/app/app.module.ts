@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -12,6 +13,10 @@ import { CountryCodePipe } from './pipes/country-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { DataService } from './services/data.service';
+import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
+import { LoggerInterceptorService } from './services/logger-interceptor.service';
+import { ResponseInterceptorService } from './services/response-interceptor.service';
 
 @NgModule({
   declarations: [     // Components, Directives, Pipes
@@ -24,14 +29,27 @@ import { RegisterComponent } from './components/auth/register/register.component
     CountryCodePipe,
     FilterPipe,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ObservableDemoComponent
   ],
   imports: [          // Module - Builtin / Custom
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],      // Service
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : LoggerInterceptorService,
+      multi : true
+    },{
+      provide : HTTP_INTERCEPTORS,
+      useClass : ResponseInterceptorService,
+      multi : true
+    }
+    // DataService
+  ],      // Service
   bootstrap: [AppComponent]     // loads the Root Component
 })
 export class AppModule { }
