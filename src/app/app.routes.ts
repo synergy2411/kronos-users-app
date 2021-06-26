@@ -8,6 +8,7 @@ import { OverviewComponent } from "./components/product/overview/overview.compon
 import { ProductComponent } from "./components/product/product.component";
 import { SpecificationComponent } from "./components/product/specification/specification.component";
 import { UsersComponent } from "./components/users/users.component";
+import { DirectAccessGaurdService } from "./services/direct-access-gaurd.service";
 import { LoginGaurdService } from "./services/login-gaurd.service";
 
 export const APP_ROUTES : Routes = [
@@ -27,17 +28,24 @@ export const APP_ROUTES : Routes = [
     canActivate : [LoginGaurdService]
   },{
     path : "pipe",                // http://locahost:4200/pipe
-    component : PipeDemoComponent
+    component : PipeDemoComponent,
+    canActivate : [DirectAccessGaurdService]
   },{
     path : "observable",          // http://locahost:4200/observable
     component : ObservableDemoComponent
   },{
     path : "product",
     component : ProductComponent,
+    canActivate : [DirectAccessGaurdService],
     children : [
       {path : "overview/:id", component : OverviewComponent},
       {path : "specification", component : SpecificationComponent}
     ]
+  },{
+    path : "lazy",
+    loadChildren : () => import("./modules/lazy/lazy.module")
+                            .then(m => m.LazyModule)
+    // loadChildren : './modules/lazy/lazy.module#LazyModule'     // path/to/module/ModuleFileName#ModuleClassName
   },{
     path : "not-found",
     component : NotFoundComponent

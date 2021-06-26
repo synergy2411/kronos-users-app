@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
 
   onLogout(){
     this.authService.logout().then(res => {
+      debugger;
       if(res === "LOGOUT_SUCCESSFULLY"){
         this.router.navigate(['login']);
       }

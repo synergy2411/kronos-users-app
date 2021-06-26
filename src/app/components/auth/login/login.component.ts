@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  myForm : NgForm;
   constructor(
     private authService : AuthService,
     private router : Router) { }
@@ -25,6 +26,9 @@ export class LoginComponent implements OnInit {
         if(resp === "AUTHENTICATED"){
           this.router.navigate(['users']);
         }
+      }).catch(err => {
+        alert(err);
+        form.reset();
       })
       .catch(console.log);
   }
