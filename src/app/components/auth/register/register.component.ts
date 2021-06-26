@@ -1,3 +1,4 @@
+import { formatCurrency } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
@@ -37,7 +38,9 @@ export class RegisterComponent implements OnInit {
       this.registerForm.value.username,
       this.registerForm.value.password).then(resp => {
         alert(resp)
-      }).catch(err => console.log(err));
+      }).catch(err => {
+        console.log(err);
+      });
   }
 
   onReset(){

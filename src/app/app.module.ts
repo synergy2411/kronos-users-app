@@ -22,6 +22,9 @@ import { ResponseInterceptorService } from './services/response-interceptor.serv
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { APP_ROUTES } from './app.routes';
 import { HeaderComponent } from './components/header/header.component';
+import { ProductComponent } from './components/product/product.component';
+import { OverviewComponent } from './components/product/overview/overview.component';
+import { SpecificationComponent } from './components/product/specification/specification.component';
 
 @NgModule({
   declarations: [     // Components, Directives, Pipes
@@ -37,7 +40,10 @@ import { HeaderComponent } from './components/header/header.component';
     RegisterComponent,
     ObservableDemoComponent,
     NotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductComponent,
+    OverviewComponent,
+    SpecificationComponent
   ],
   imports: [          // Module - Builtin / Custom
     BrowserModule,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   routes : Array<{links : string, id? : number}>;
 
-  constructor() { }
+  constructor(public authService : AuthService, private router : Router) { }
 
   ngOnInit(): void {
     this.routes = [{
@@ -25,5 +27,14 @@ export class HeaderComponent implements OnInit {
       links :'observable'
     }]
   }
+
+  onLogout(){
+    this.authService.logout().then(res => {
+      if(res === "LOGOUT_SUCCESSFULLY"){
+        this.router.navigate(['login']);
+      }
+    });
+  }
+
 
 }
