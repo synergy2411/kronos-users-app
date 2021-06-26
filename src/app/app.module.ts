@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { RouterModule } from '@angular/router';
 
+import { RoutingModule } from './modules/routing/routing.module';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/users/user/user.component';
@@ -44,6 +45,7 @@ import { HeaderComponent } from './components/header/header.component';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(APP_ROUTES)
+    // RoutingModule
   ],
   providers: [
     {

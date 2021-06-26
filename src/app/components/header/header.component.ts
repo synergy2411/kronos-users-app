@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  routes : Array<{links : string, id? : number}>;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.routes = [{
+      links :'login'
+    },{
+      links :'register',
+      id : 4
+    },{
+      links :'pipe'
+    },{
+      links :'users'
+    },{
+      links :'observable'
+    }]
   }
 
 }
