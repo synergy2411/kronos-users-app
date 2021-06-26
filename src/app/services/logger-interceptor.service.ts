@@ -9,6 +9,9 @@ export class LoggerInterceptorService implements HttpInterceptor{
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log("[Logger Works]", req);
+    if(req.url == ""){
+      // add token
+    }
     return next.handle(req);
   }
 }
